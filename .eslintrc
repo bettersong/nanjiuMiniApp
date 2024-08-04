@@ -1,0 +1,18 @@
+// ESLint 检查 .vue 文件需要单独配置编辑器：
+// https://eslint.vuejs.org/user-guide/#editor-integrations
+{
+  "extends": [ "plugin:vue/vue3-essential", "plugin:prettier/recommended", "prettier" ],
+  "plugins": ["import", "@typescript-eslint"],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "vueFeatures": {
+      "filter": true,
+      "interpolationAsNonHTML": false
+    },
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off",
+    "quotes": ["error", "double"],
+  }
+}
