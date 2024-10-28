@@ -3,14 +3,18 @@ const app = process.env.APP
 const config = {
   projectName: 'nanjiuMiniApp',
   date: '2024-2-23',
-  designWidth: 750,
+  designWidth: 375,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
+    375: 2 / 1,
     828: 1.81 / 2
   },
   sourceRoot: 'src',
   outputRoot: 'NANJIUMINIAPP',
+  alias: {
+    "@": path.resolve(__dirname, "..", "src"),
+  },
   plugins: [],
   defineConstants: {
   },
@@ -58,7 +62,7 @@ const config = {
         }
       },
       cssModules: {
-        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
         config: {
           namingPattern: 'module', // 转换模式，取值为 global/module
           generateScopedName: '[name]__[local]___[hash:base64:5]'
