@@ -1,3 +1,5 @@
+import Taro from '@tarojs/taro';
+
 export const throttle = (cb, delay = 300) => {
   //距离上一次的执行时间
   let lastTime = 0;
@@ -15,3 +17,15 @@ export const throttle = (cb, delay = 300) => {
     }
   };
 };
+
+
+// 获取状态栏高度
+export const getTitleBarHeight = () => {
+  const { statusBarHeight = 0 } = Taro.getSystemInfoSync();
+  const { top, height } = Taro.getMenuButtonBoundingClientRect();
+  return {
+    statusBarHeight,
+    titleBarHeight: height,
+    titleTop: top
+  }
+}

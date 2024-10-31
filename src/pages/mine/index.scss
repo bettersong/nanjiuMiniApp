@@ -1,3 +1,42 @@
 .container {
   text-align: center;
+  padding: 12px 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  // background: #f5f5f5;
+}
+.mine_top {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+.user_img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.user_name {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #333;
+}
+.my_text {
+  display: inline-block;
+  width: 21ch;
+  font: bold 200% Consolas, Monaco, monospace;   /*等宽字体*/
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+  border-right: 1px solid transparent;
+  animation: typing 10s steps(21), caret .5s steps(1) infinite;
+}
+@keyframes typing{
+  from {
+      width: 0;
+  }
+}
+@keyframes caret{
+  50% { border-right-color: currentColor}
 }

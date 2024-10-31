@@ -1,7 +1,13 @@
 <template>
-  <view class="container">开发中，敬请期待！</view>
+  <view class="container">
+      <view class="my_text">
+        welcome you~
+      </view>
+    <circleCom />
+  </view>
 </template>
 
 <script setup lang="ts">
 import './index.scss'
+import circleCom from './components/circle.vue';
 </script>
