@@ -15,7 +15,21 @@ const config = {
   alias: {
     "@": path.resolve(__dirname, "..", "src"),
   },
-  plugins: [],
+  plugins: [
+    [
+      '@tarojs/plugin-framework-vue3',
+      {
+        vueLoaderOption: {
+          compilerOptions: {
+            isCustomElement: (tag) => tag.includes('towxml'),
+            whitespace: 'preserve',
+            // ...
+          },
+          reactivityTransform: true, // 开启vue3响应性语法糖
+        },
+      },
+    ],
+  ],
   defineConstants: {
   },
   copy: {

@@ -1,15 +1,17 @@
 <template>
   <view class="index_container">
-    <view class="index_title">ONE DAY ONE SIGN</view>
-    <view class="index_subtitle">每日一签</view>
+    <view class="top_title">
+      <view class="index_title">ONE DAY ONE SIGN</view>
+      <view class="index_subtitle">每日一签</view>
+    </view>
 
     <view class="index_center">
-      <image mode="widthFix" src="../../assets/images/index1.jpeg" />
+      <image mode="widthFix" :src="seasonObj.bg" />
       <view class="index_time">
         <view class="index_year">{{ yearText }}</view>
         <view class="index_md">{{ md }}</view>
       </view>
-      <view class="season_text">{{ seasonText }}</view>
+      <view class="season_text">{{ seasonObj.text }}</view>
     </view>
     <view class="today_text">{{ randomText }}</view>
   </view>
@@ -22,7 +24,7 @@ import type { Season } from './index.d'
 
 const yearText = ref('')
 const md = ref('')
-const seasonText = ref('')
+const seasonObj = ref<Season>({})
 
 const getTime = () => {
   const date = new Date()
@@ -44,7 +46,8 @@ const getSeason = () => {
       season = {
         text: '春',
         color: '#FFD700',
-        enText: 'spring'
+        enText: 'spring',
+        bg: 'https://gitee.com/bettersong/imgs/raw/main/images/spring.jpg'
       }
       break
     case 6:
@@ -53,7 +56,8 @@ const getSeason = () => {
       season = {
         text: '夏',
         color: '#FF6347',
-        enText: 'summer'
+        enText: 'summer',
+        bg: 'https://gitee.com/bettersong/imgs/raw/main/images/summer.jpg'
       }
       break
     case 9:
@@ -62,7 +66,8 @@ const getSeason = () => {
       season = {
         text: '秋',
         color: '#FF4500',
-        enText: 'autumn'
+        enText: 'autumn',
+        bg: 'https://gitee.com/bettersong/imgs/raw/main/images/autumn.jpg'
       }
       break
     case 12:
@@ -71,11 +76,12 @@ const getSeason = () => {
       season = {
         text: '冬',
         color: '#4682B4',
-        enText: 'winter'
+        enText: 'winter',
+        bg: 'https://gitee.com/bettersong/imgs/raw/main/images/winter.jpg'
       }
       break
   }
-  return season
+  seasonObj.value = season
 }
 
 const textList = [
@@ -116,7 +122,7 @@ const textList = [
 const randomText = textList[Math.floor(Math.random() * textList.length)]
 onMounted(() => {
   getTime()
-  seasonText.value = getSeason().text || ''
+  getSeason()
 
 })
 </script>

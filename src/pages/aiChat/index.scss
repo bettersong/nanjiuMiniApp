@@ -1,0 +1,69 @@
+
+.ai_container {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.message_list {
+  flex: 1;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+  height: calc(100vh - 100px);
+}
+
+.message_item {
+  display: flex;
+}
+.message_item_left {
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+.message_item_right {
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+.user_message {
+  background-color: #e5e5e5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  max-width: 80%;
+}
+.ai_message {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  max-width: 80%;
+}
+.ai_bottom_send {
+  position: fixed;
+  bottom: 0;
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  padding-bottom: var(--safe-area-inset-bottom);
+  background: #fff;
+  z-index: 3;
+}
+
+.ai_bottom_send_container {
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  input {
+    flex: 1;
+    padding: 0 16px;
+  }
+}
+
+.send_btn {
+  padding: 0 16px;
+  color: rgb(208, 53, 5);
+  font-weight: 500;
+}
+.send_btn_disable {
+  opacity: 0.6;
+}

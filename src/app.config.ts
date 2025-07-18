@@ -3,11 +3,14 @@ export default defineAppConfig({
     'pages/index/index',
     'pages/login/index',
     'pages/mine/index',
-    'pages/sign/index'
+    'pages/sign/index',
+    'pages/generateImg/index',
+    'pages/aiChat/index',
   ],
   tabBar:{
     color: '#2c2c2c',
     selectedColor: '#d81e06',
+    borderStyle: 'black',
     list: [
       {
         pagePath: 'pages/index/index',

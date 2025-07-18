@@ -22,10 +22,11 @@ export const throttle = (cb, delay = 300) => {
 // 获取状态栏高度
 export const getTitleBarHeight = () => {
   const { statusBarHeight = 0 } = Taro.getSystemInfoSync();
-  const { top, height } = Taro.getMenuButtonBoundingClientRect();
+  const { top, height, bottom } = Taro.getMenuButtonBoundingClientRect();
   return {
     statusBarHeight,
     titleBarHeight: height,
-    titleTop: top
+    titleTop: top,
+    titleBottom: bottom
   }
 }

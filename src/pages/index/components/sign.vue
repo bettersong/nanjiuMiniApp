@@ -45,7 +45,7 @@ const generateSignList = () => {
     }
   }else {
     // 如果当天不是周日，则需分今天之前的日期和今天之后的日期
-    let before = weekList.length - week + 1
+    let before = week
     for (let i = 0; i < before; i++) {
       const day = new Date(date.getTime() - (before - i) * 24 * 60 * 60 * 1000)
       list.push({
@@ -54,6 +54,7 @@ const generateSignList = () => {
         sort: (week - before + i) % 7,
       })
     }
+    // console.log('before', before, list)
     for (let i = 0; i < weekList.length-before; i++) {
       const day = new Date(date.getTime() + i * 24 * 60 * 60 * 1000)
       list.push({

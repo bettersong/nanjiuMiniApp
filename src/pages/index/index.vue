@@ -7,7 +7,9 @@
         paddingLeft: '16px',
       }">前端南玖</view>
     </view>
-    <view class="index_center">
+    <view class="index_center" :style="{
+      top: titleBottom + 40 + 'px'
+    }">
       <!-- 签到 -->
        <sign />
        <view class="center_container">
@@ -26,6 +28,7 @@
        </view>
     </view>
   </view>
+  <Loading v-if="isLoading" />
 </template>
 
 <script setup lang="ts">
@@ -34,17 +37,25 @@ import { onMounted, ref } from 'vue'
 import { getTitleBarHeight } from '../../utils/index'
 import sign from './components/sign.vue';
 import banner from './components/banner.vue';
-import { useShareAppMessage } from '@tarojs/taro';
+import  { useShareAppMessage } from '@tarojs/taro';
+import Loading from '../../components/loading/index.vue';
 
-const { titleBarHeight, titleTop } = getTitleBarHeight()
-console.log('titleHeight', titleBarHeight)
+const { titleBarHeight, titleTop, titleBottom } = getTitleBarHeight()
+const isLoading = ref(true)
 
 const list = ref([
-  {id: 1, text: '资讯'},
-  {id: 2, text: '工具'},
-  {id: 3, text: '留言'},
-  {id: 4, text: '关于'},
+  {id: 1, text: ''},
+  {id: 2, text: ''},
+  {id: 3, text: ''},
+  {id: 4, text: ''},
 ])
+
+
+onMounted(() => {
+  setTimeout(() => {
+    isLoading.value = false
+  }, 1500)
+})
 
 useShareAppMessage(() => {
   return {

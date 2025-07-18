@@ -22,6 +22,7 @@
   position: relative;
   width: 88%;
   margin: 8px auto 0;
+  animation: flipInVerRight 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both 1s;
   image {
     width: 100%;
     border-radius: 12px;
@@ -50,6 +51,7 @@
   position: absolute;
   left: 16px;
   bottom: 16px;
+  font-family: "ZZGFMMT";
   font-size: 28px;
   color: #fff;
 }
@@ -59,5 +61,44 @@
   color: #191919;
   font-weight: 400;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+  animation: slideInLeft 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both 2s;
+}
+
+.top_title {
+  animation: topTitleFadeIn 1s ease-in-out;
+}
+
+@keyframes topTitleFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+
+}
+@keyframes flipInVerRight {
+  0% {
+    -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+            transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+            transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+    opacity: 1;
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
 }
 
