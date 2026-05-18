@@ -20,6 +20,7 @@
 <script setup lang="ts">
 import './index.scss'
 import { onMounted, ref } from 'vue'
+import Taro from '@tarojs/taro'
 import type { Season } from './index.d'
 
 const yearText = ref('')
@@ -123,6 +124,8 @@ const randomText = textList[Math.floor(Math.random() * textList.length)]
 onMounted(() => {
   getTime()
   getSeason()
-
+  // 统计签到次数
+  const count = Taro.getStorageSync('nj_sign_count') || 0
+  Taro.setStorageSync('nj_sign_count', count + 1)
 })
 </script>

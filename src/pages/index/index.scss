@@ -1,86 +1,141 @@
 .index_container {
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
   min-height: 100vh;
-  background: #fff;
+  background: #f5f5f5;
 }
-.top_head {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+// 渐变头部
+.index_header {
   width: 100%;
-  height: 240px;
-  background: linear-gradient(162.27deg, rgba(246, 211, 101, 1) 0%, rgba(253, 160, 133, 1) 100%);
+  padding-bottom: 32px;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  border-radius: 0 0 24px 24px;
 }
-.top_head_title {
-  position: relative;
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  font-family: "ZZGFMMT";
-  letter-spacing: 8px;
-  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+.header_content {
+  padding: 0 24px;
 }
-.index_center {
-  position: relative;
-  // top: 80px;
-  box-sizing: border-box;
-  margin: 0 12px;
-  // width: 100%;
-}
-.center_container {
-  background: #fff;
-  border-radius: 16px;
-}
-.center_item {
-  display: flex;
-  height: 150px;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 16px;
-}
-.center_item_left {
-  position: relative;
-  width: 50%;
-  height: 100%;
-  padding: 16px;
-  box-sizing: border-box;
-  background:rgba(246, 211, 101, 1);
-  border-radius: 16px;
-  image {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 50%;
-  }
-}
-.center_item_right {
-  display: flex;
-  justify-content: space-between;
-  align-content: space-between;
-  flex-wrap: wrap;
-  width: calc(100% - 50% - 12px);
-  height: 100%;
-  // padding: 16px;
-  box-sizing: border-box;
-}
-.right_child {
-  box-sizing: border-box;
-  padding: 12px;
-  width: calc(50% - 6px);
-  height:calc(50% - 6px);
-  background: rgba(253, 160, 133, 1);
-  border-radius: 16px;
+
+.header_greeting {
+  font-size: 22px;
+  font-weight: 700;
   color: #fff;
-  image {
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
+  margin-bottom: 4px;
+}
+
+.header_date {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+// 主体内容
+.index_body {
+  padding: 16px;
+  margin-top: -12px;
+  position: relative;
+  z-index: 10;
+}
+
+// 通用卡片样式
+.section_card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+// 每日一言
+.quote_card {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.quote_icon {
+  font-size: 24px;
+  margin-right: 12px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.quote_content {
+  flex: 1;
+}
+
+.quote_text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.quote_label {
+  font-size: 11px;
+  color: #ccc;
+}
+
+// 工具箱
+.tools_card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.tools_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.tools_title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.tools_more {
+  font-size: 13px;
+  color: #fda085;
+  &:active {
+    opacity: 0.7;
   }
 }
 
+.tools_grid {
+  display: flex;
+  justify-content: space-between;
+}
 
+.tool_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 56px;
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.tool_icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(246, 211, 101, 0.15) 0%, rgba(253, 160, 133, 0.15) 100%);
+  border-radius: 12px;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.tool_name {
+  font-size: 11px;
+  color: #666;
+}
