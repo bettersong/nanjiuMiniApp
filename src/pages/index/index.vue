@@ -45,6 +45,18 @@
           </view>
         </view>
       </view>
+
+      <!-- 趣味练习入口 -->
+      <view class="fun_entry" @tap="gotoFun">
+        <view class="fun_entry_left">
+          <view class="fun_entry_icon">🎮</view>
+          <view class="fun_entry_info">
+            <view class="fun_entry_title">趣味练习</view>
+            <view class="fun_entry_sub">打字练习 · Flexbox 闯关</view>
+          </view>
+        </view>
+        <view class="fun_entry_arrow">›</view>
+      </view>
     </view>
   </view>
 </template>
@@ -118,6 +130,10 @@ const gotoTools = () => {
 
 const gotoTool = (path: string) => {
   Taro.navigateTo({ url: path })
+}
+
+const gotoFun = () => {
+  Taro.navigateTo({ url: '/pages/fun/index' })
 }
 
 // 分享

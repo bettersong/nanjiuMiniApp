@@ -60,6 +60,30 @@ const toolGroups = [
         desc: '正则表达式调试',
         path: '/pages/tools/regex/index',
       },
+      {
+        icon: '✨',
+        name: 'CSS 片段',
+        desc: '常用 CSS 效果',
+        path: '/pages/tools/css/index',
+      },
+      {
+        icon: '📝',
+        name: 'Markdown',
+        desc: '实时预览',
+        path: '/pages/tools/markdown/index',
+      },
+      {
+        icon: '📱',
+        name: '二维码',
+        desc: '生成二维码',
+        path: '/pages/tools/qrcode/index',
+      },
+      {
+        icon: '🌐',
+        name: 'URL 编解码',
+        desc: 'encode / decode',
+        path: '/pages/tools/urlencode/index',
+      },
     ],
   },
 ]
