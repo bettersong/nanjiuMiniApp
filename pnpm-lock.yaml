@@ -80,6 +80,9 @@ importers:
       vue-taro-router:
         specifier: ^1.0.3
         version: 1.0.3
+      weapp-qrcode:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@babel/core':
         specifier: ^7.8.0
@@ -3491,7 +3494,7 @@ packages:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
 
   fsevents@2.3.3:
-    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==, tarball: https://mirrors.tencent.com/npm/fsevents/-/fsevents-2.3.3.tgz}
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
@@ -4455,7 +4458,7 @@ packages:
     engines: {node: '>=4'}
 
   make-dir@2.1.0:
-    resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
+    resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==, tarball: https://mirrors.tencent.com/npm/make-dir/-/make-dir-2.1.0.tgz}
     engines: {node: '>=6'}
 
   make-dir@3.1.0:
@@ -4555,7 +4558,7 @@ packages:
     engines: {node: '>= 0.6'}
 
   mime@1.6.0:
-    resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
+    resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==, tarball: https://mirrors.tencent.com/npm/mime/-/mime-1.6.0.tgz}
     engines: {node: '>=4'}
     hasBin: true
 
@@ -4622,10 +4625,10 @@ packages:
     resolution: {integrity: sha512-OJB2uVAfhycX4teG/zEVpoThushQqLOx946XACDpVc6OQydiJWjn7djVzvNCbv0VOA7sbHGPQp/RkXD9vMCDEw==}
 
   miniprogram-compiler@0.2.3:
-    resolution: {integrity: sha512-/MfFiXTBUwYxnrTbj1hgwk1+qGkMCTL1zi8IReOq/0SPVkUxpx19E89w+ohYCELFXkMfVbD+6ejrHh3Y1u5sVg==, tarball: https://mirrors.tencent.com/npm/miniprogram-compiler/-/miniprogram-compiler-0.2.3.tgz}
+    resolution: {integrity: sha512-/MfFiXTBUwYxnrTbj1hgwk1+qGkMCTL1zi8IReOq/0SPVkUxpx19E89w+ohYCELFXkMfVbD+6ejrHh3Y1u5sVg==}
 
   miniprogram-exparser@2.29.1:
-    resolution: {integrity: sha512-f2LUVYcQ5O664nOHhrEbtR//hlqln88dRY0mIwuRncJfuXMCdK9FBk0vzNDG6EgaaeTt3iGLeFQLRHlhYktkXw==, tarball: https://mirrors.tencent.com/npm/miniprogram-exparser/-/miniprogram-exparser-2.29.1.tgz}
+    resolution: {integrity: sha512-f2LUVYcQ5O664nOHhrEbtR//hlqln88dRY0mIwuRncJfuXMCdK9FBk0vzNDG6EgaaeTt3iGLeFQLRHlhYktkXw==}
 
   miniprogram-simulate@1.6.1:
     resolution: {integrity: sha512-WO+T1A1fYZV6qW4mLNEl/+Rtdpw339mPd8q0KkyGHUFbRCIMzIHVutn2UrhUbn6UWZpkGurKwDUckNkpLhJ9QA==}
@@ -5854,7 +5857,7 @@ packages:
     engines: {node: '>=12'}
 
   string.fromcodepoint@0.2.1:
-    resolution: {integrity: sha512-n69H31OnxSGSZyZbgBlvYIXlrMhJQ0dQAX1js1QDhpaUH6zmU3QYlj07bCwCNlPOu3oRXIubGPl2gDGnHsiCqg==, tarball: https://mirrors.tencent.com/npm/string.fromcodepoint/-/string.fromcodepoint-0.2.1.tgz}
+    resolution: {integrity: sha512-n69H31OnxSGSZyZbgBlvYIXlrMhJQ0dQAX1js1QDhpaUH6zmU3QYlj07bCwCNlPOu3oRXIubGPl2gDGnHsiCqg==}
 
   string.prototype.trim@1.2.8:
     resolution: {integrity: sha512-lfjY4HcixfQXOfaqCvcBuOIapyaroTXhbkfJN3gcB1OtyupngWK4sEET9Knd0cXd28kTUqu/kHoV4HKSJdnjiQ==}
@@ -6232,7 +6235,7 @@ packages:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
   unescape-js@1.1.4:
-    resolution: {integrity: sha512-42SD8NOQEhdYntEiUQdYq/1V/YHwr1HLwlHuTJB5InVVdOSbgI6xu8jK5q65yIzuFCfczzyDF/7hbGzVbyCw0g==, tarball: https://mirrors.tencent.com/npm/unescape-js/-/unescape-js-1.1.4.tgz}
+    resolution: {integrity: sha512-42SD8NOQEhdYntEiUQdYq/1V/YHwr1HLwlHuTJB5InVVdOSbgI6xu8jK5q65yIzuFCfczzyDF/7hbGzVbyCw0g==}
 
   unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
@@ -6433,6 +6436,9 @@ packages:
 
   wcwidth@1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
+
+  weapp-qrcode@1.0.0:
+    resolution: {integrity: sha512-4sa3W0rGDVJ9QaeZpAKlAuUxVyjhDwiUqHyGK/jJMsRMXnhb4yO8qWU/pZruMo+iT5J6CraS67lDMFb1VY+RaA==}
 
   webidl-conversions@7.0.0:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
@@ -13978,6 +13984,10 @@ snapshots:
   wcwidth@1.0.1:
     dependencies:
       defaults: 1.0.4
+
+  weapp-qrcode@1.0.0:
+    dependencies:
+      extend: 3.0.2
 
   webidl-conversions@7.0.0: {}
 

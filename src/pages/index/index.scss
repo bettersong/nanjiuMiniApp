@@ -35,47 +35,127 @@
   z-index: 10;
 }
 
-// 通用卡片样式
-.section_card {
+// 猜你想用
+.guess_card {
   background: #fff;
   border-radius: 14px;
-  padding: 12px;
+  padding: 14px 16px;
   margin-bottom: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
-// 每日一言
-.quote_card {
-  display: flex;
-  align-items: flex-start;
-  background: #fff;
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-}
-
-.quote_icon {
-  font-size: 24px;
-  margin-right: 12px;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.quote_content {
-  flex: 1;
-}
-
-.quote_text {
+.guess_title {
   font-size: 14px;
+  font-weight: 600;
   color: #333;
-  line-height: 1.7;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.quote_label {
+.guess_list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.guess_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  &:active { opacity: 0.7; }
+}
+
+.guess_icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(246, 211, 101, 0.12) 0%, rgba(253, 160, 133, 0.12) 100%);
+  border-radius: 14px;
+  font-size: 22px;
+}
+
+.guess_name {
+  font-size: 12px;
+  color: #666;
+}
+
+// 时钟 + 每日一言
+.clock_quote_card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.clock_area {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.clock_time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.clock_h, .clock_m, .clock_s {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  font-family: -apple-system, 'Helvetica Neue', monospace;
+  letter-spacing: 2px;
+}
+
+.clock_sep {
+  font-size: 26px;
+  font-weight: 300;
+  color: #fda085;
+  margin: 0 3px;
+}
+
+.clock_sep_blink {
+  opacity: 0.3;
+}
+
+.clock_meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.clock_week {
   font-size: 11px;
-  color: #ccc;
+  color: #999;
+}
+
+.clock_dot {
+  font-size: 11px;
+  color: #ddd;
+}
+
+.clock_progress {
+  font-size: 11px;
+  color: #fda085;
+}
+
+.clock_divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.clock_quote {
+  text-align: center;
+}
+
+.clock_quote_text {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
 }
 
 // 工具箱
@@ -140,7 +220,7 @@
   color: #666;
 }
 
-// 趣味练习入口
+// 趣味互动入口
 .fun_entry {
   display: flex;
   align-items: center;

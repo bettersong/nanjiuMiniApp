@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import Taro from '@tarojs/taro'
+import Taro, { useDidShow } from '@tarojs/taro'
 
 interface SignItemInfo {
   date: string
@@ -82,6 +82,9 @@ const gotoSign = () => {
 
 onMounted(() => {
   generateSignList()
+})
+
+useDidShow(() => {
   signCount.value = Taro.getStorageSync('nj_sign_count') || 0
 })
 </script>

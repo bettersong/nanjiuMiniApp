@@ -28,7 +28,30 @@ import Taro from '@tarojs/taro'
 
 const toolGroups = [
   {
-    title: '开发者工具',
+    title: '编码转换',
+    tools: [
+      {
+        icon: '🔐',
+        name: 'Base64',
+        desc: '编码与解码',
+        path: '/pages/tools/base64/index',
+      },
+      {
+        icon: '🌐',
+        name: 'URL 编解码',
+        desc: 'encode / decode',
+        path: '/pages/tools/urlencode/index',
+      },
+      {
+        icon: '📱',
+        name: '二维码',
+        desc: '生成二维码',
+        path: '/pages/tools/qrcode/index',
+      },
+    ],
+  },
+  {
+    title: '开发调试',
     tools: [
       {
         icon: '⏱',
@@ -43,22 +66,21 @@ const toolGroups = [
         path: '/pages/tools/json/index',
       },
       {
-        icon: '🔐',
-        name: 'Base64',
-        desc: '编码与解码',
-        path: '/pages/tools/base64/index',
+        icon: '🔍',
+        name: '正则测试',
+        desc: '正则表达式调试',
+        path: '/pages/tools/regex/index',
       },
+    ],
+  },
+  {
+    title: '前端相关',
+    tools: [
       {
         icon: '🎨',
         name: '颜色转换',
         desc: 'HEX / RGB / HSL',
         path: '/pages/tools/color/index',
-      },
-      {
-        icon: '🔍',
-        name: '正则测试',
-        desc: '正则表达式调试',
-        path: '/pages/tools/regex/index',
       },
       {
         icon: '✨',
@@ -72,17 +94,22 @@ const toolGroups = [
         desc: '实时预览',
         path: '/pages/tools/markdown/index',
       },
+    ],
+  },
+  {
+    title: '生活计算',
+    tools: [
       {
-        icon: '📱',
-        name: '二维码',
-        desc: '生成二维码',
-        path: '/pages/tools/qrcode/index',
+        icon: '🎂',
+        name: '年龄计算',
+        desc: '星座 · 生肖 · 倒数',
+        path: '/pages/tools/age/index',
       },
       {
-        icon: '🌐',
-        name: 'URL 编解码',
-        desc: 'encode / decode',
-        path: '/pages/tools/urlencode/index',
+        icon: '⚖️',
+        name: 'BMI 计算',
+        desc: '身体质量指数',
+        path: '/pages/tools/bmi/index',
       },
     ],
   },

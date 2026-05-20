@@ -1,8 +1,8 @@
 <template>
   <view class="fun_container">
     <view class="fun_header">
-      <view class="fun_header_title">🎮 趣味练习</view>
-      <view class="fun_header_sub">寓教于乐，提升前端技能</view>
+      <view class="fun_header_title">🎮 趣味互动</view>
+      <view class="fun_header_sub">休闲一下，放松大脑</view>
     </view>
 
     <view class="fun_grid">
@@ -28,28 +28,34 @@ import Taro from '@tarojs/taro'
 
 const funList = [
   {
+    icon: '🎲',
+    name: '2048',
+    desc: '滑动合并数字，挑战最高分',
+    path: '/pages/fun/game2048/index',
+  },
+  {
+    icon: '🎡',
+    name: '转盘抽奖',
+    desc: '选择困难？交给命运来决定',
+    path: '/pages/fun/wheel/index',
+  },
+  {
+    icon: '🧠',
+    name: 'MBTI 性格测试',
+    desc: '2分钟测出你的人格类型',
+    path: '/pages/fun/mbti/index',
+  },
+  {
     icon: '⌨️',
-    name: '打字练习',
-    desc: '前端关键词打字速度测试',
+    name: '打字竞速',
+    desc: '看看你的手速有多快',
     path: '/pages/fun/typing/index',
   },
   {
     icon: '🐸',
     name: 'Flexbox 闯关',
-    desc: '像游戏一样学习 Flex 布局',
+    desc: '用 CSS 布局帮青蛙回家',
     path: '/pages/fun/flexbox/index',
-  },
-  {
-    icon: '🎲',
-    name: '2048',
-    desc: '经典数字合并小游戏',
-    path: '/pages/fun/game2048/index',
-  },
-  {
-    icon: '🧠',
-    name: 'MBTI 测试',
-    desc: '16题快速测出你的性格类型',
-    path: '/pages/fun/mbti/index',
   },
 ]
 
