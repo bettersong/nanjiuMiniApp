@@ -57,6 +57,18 @@ const funList = [
     desc: '用 CSS 布局帮青蛙回家',
     path: '/pages/fun/flexbox/index',
   },
+  {
+    icon: '🎨',
+    name: '像素画板',
+    desc: '创作你的像素艺术作品',
+    path: '/pages/fun/pixel/index',
+  },
+  {
+    icon: '🦘',
+    name: '跳一跳',
+    desc: '按住蓄力，精准跳跃方块',
+    path: '/pages/fun/jump/index',
+  },
 ]
 
 const navigate = (path: string) => {

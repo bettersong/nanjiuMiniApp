@@ -2,9 +2,35 @@
   <view class="index_container">
     <!-- 渐变头部 -->
     <view class="index_header" :style="{ paddingTop: titleBottom + 12 + 'px' }">
-      <view class="header_content">
-        <view class="header_greeting">{{ greeting }}</view>
-        <view class="header_date">{{ dateText }}</view>
+      <view class="header_blob header_blob1" />
+      <view class="header_blob header_blob2" />
+      <view class="header_top">
+        <view class="header_content">
+          <view class="header_greeting">{{ greeting }}</view>
+          <view class="header_date">{{ dateText }}</view>
+        </view>
+        <view class="header_level" @tap="gotoSign">
+          <text class="header_level_badge">Lv.{{ level }}</text>
+          <text class="header_level_score">✦ {{ totalScore }}</text>
+        </view>
+      </view>
+
+      <!-- 今日速览 -->
+      <view class="header_overview">
+        <view class="overview_item">
+          <text class="overview_num">🔥 {{ streak }}</text>
+          <text class="overview_label">连续签到</text>
+        </view>
+        <view class="overview_line" />
+        <view class="overview_item">
+          <text class="overview_num">📅 {{ totalCount }}</text>
+          <text class="overview_label">累计签到</text>
+        </view>
+        <view class="overview_line" />
+        <view class="overview_item">
+          <text class="overview_num">⏳ {{ yearProgress }}%</text>
+          <text class="overview_label">今年已过</text>
+        </view>
       </view>
     </view>
 
@@ -75,8 +101,11 @@
         <view class="fun_entry_left">
           <view class="fun_entry_icon">🎮</view>
           <view class="fun_entry_info">
-            <view class="fun_entry_title">趣味互动</view>
-            <view class="fun_entry_sub">2048 · MBTI · 转盘 · Flexbox · 打字</view>
+            <view class="fun_entry_title">
+              趣味互动
+              <text class="fun_entry_tag">NEW</text>
+            </view>
+            <view class="fun_entry_sub">跳一跳 · 像素画板 · 2048 · 转盘 · 更多</view>
           </view>
         </view>
         <view class="fun_entry_arrow">›</view>
@@ -90,9 +119,49 @@ import './index.scss'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { getTitleBarHeight } from '../../utils/index'
 import SignCard from './components/sign.vue'
-import Taro, { useShareAppMessage } from '@tarojs/taro'
+import Taro, { useShareAppMessage, useDidShow } from '@tarojs/taro'
 
 const { titleBottom } = getTitleBarHeight()
+
+// ====== 成长数据（复用签到积分体系） ======
+const totalScore = ref(0)
+const streak = ref(0)
+const totalCount = ref(0)
+const level = computed(() => Math.floor(totalScore.value / 100) + 1)
+
+const formatDate = (date: Date) => {
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const d = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${d}`
+}
+
+const calcStreak = (records: string[]) => {
+  if (records.length === 0) return 0
+  const set = new Set(records)
+  const todayStr = formatDate(new Date())
+  let count = 0
+  let cursor = new Date()
+  if (!set.has(todayStr)) {
+    cursor = new Date(cursor.getTime() - 86400000)
+  }
+  while (set.has(formatDate(cursor))) {
+    count++
+    cursor = new Date(cursor.getTime() - 86400000)
+  }
+  return count
+}
+
+const loadGrowth = () => {
+  totalScore.value = Taro.getStorageSync('nj_sign_score') || 0
+  const records: string[] = Taro.getStorageSync('nj_sign_records') || []
+  totalCount.value = records.length
+  streak.value = calcStreak(records)
+}
+
+useDidShow(() => {
+  loadGrowth()
+})
 
 // ====== 问候语 ======
 const getGreeting = (): string => {
@@ -233,6 +302,10 @@ const gotoTool = (path: string) => {
 
 const gotoFun = () => {
   Taro.navigateTo({ url: '/pages/fun/index' })
+}
+
+const gotoSign = () => {
+  Taro.navigateTo({ url: '/pages/sign/index' })
 }
 
 // 分享

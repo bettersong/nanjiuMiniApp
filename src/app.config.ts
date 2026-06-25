@@ -24,6 +24,8 @@ export default defineAppConfig({
     'pages/fun/game2048/index',
     'pages/fun/mbti/index',
     'pages/fun/wheel/index',
+    'pages/fun/pixel/index',
+    'pages/fun/jump/index',
   ],
   tabBar:{
     color: '#2c2c2c',

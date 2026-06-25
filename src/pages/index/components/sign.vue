@@ -13,11 +13,15 @@
         :key="item.week"
         :class="{
           sign_day: true,
-          sign_day_active: weekToDay === item.week
+          sign_day_active: item.signed,
+          sign_day_today: weekToDay === item.week
         }"
       >
         <view class="sign_day_week">{{ item.week }}</view>
-        <view class="sign_day_date">{{ item.date }}</view>
+        <view class="sign_day_date">
+          <text v-if="item.signed">✓</text>
+          <text v-else>{{ item.date }}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -31,48 +35,42 @@ interface SignItemInfo {
   date: string
   week: string
   sort: number
+  dateStr: string
+  signed: boolean
 }
 
 const signList = ref<SignItemInfo[]>([])
 const weekToDay = ref('')
 const signCount = ref(0)
 
+const formatDate = (date: Date) => {
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const d = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${d}`
+}
+
 const generateSignList = () => {
+  const records: string[] = Taro.getStorageSync('nj_sign_records') || []
   const date = new Date()
   const week = date.getDay()
   const weekList = ['日', '一', '二', '三', '四', '五', '六']
   const list: SignItemInfo[] = []
 
-  if (week === 0) {
-    for (let i = 0; i < 7; i++) {
-      const day = new Date(date.getTime() + i * 24 * 60 * 60 * 1000)
-      list.push({
-        date: day.getDate().toString(),
-        week: weekList[(week + i) % 7],
-        sort: (week + i) % 7,
-      })
-    }
-  } else {
-    let before = week
-    for (let i = 0; i < before; i++) {
-      const day = new Date(date.getTime() - (before - i) * 24 * 60 * 60 * 1000)
-      list.push({
-        date: day.getDate().toString(),
-        week: weekList[(week - before + i) % 7],
-        sort: (week - before + i) % 7,
-      })
-    }
-    for (let i = 0; i < weekList.length - before; i++) {
-      const day = new Date(date.getTime() + i * 24 * 60 * 60 * 1000)
-      list.push({
-        date: day.getDate().toString(),
-        week: weekList[(week + i) % 7],
-        sort: (week + i) % 7,
-      })
-    }
+  // 本周从周日开始生成7天
+  for (let i = 0; i < 7; i++) {
+    const day = new Date(date.getTime() + (i - week) * 86400000)
+    const dateStr = formatDate(day)
+    list.push({
+      date: day.getDate().toString(),
+      week: weekList[i],
+      sort: i,
+      dateStr,
+      signed: records.includes(dateStr),
+    })
   }
 
-  signList.value = list.sort((a, b) => a.sort - b.sort)
+  signList.value = list
   weekToDay.value = weekList[week]
 }
 
@@ -85,6 +83,7 @@ onMounted(() => {
 })
 
 useDidShow(() => {
+  generateSignList()
   signCount.value = Taro.getStorageSync('nj_sign_count') || 0
 })
 </script>
@@ -157,6 +156,11 @@ useDidShow(() => {
   .sign_day_date {
     color: #fff;
   }
+}
+
+.sign_day_today {
+  border: 1px solid #fda085;
+  box-sizing: border-box;
 }
 
 .sign_day_week {

@@ -5,14 +5,46 @@
 
 // 渐变头部
 .index_header {
+  position: relative;
   width: 100%;
-  padding-bottom: 40px;
+  padding-bottom: 44px;
   background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
   border-radius: 0 0 24px 24px;
+  overflow: hidden;
+}
+
+// 装饰光斑
+.header_blob {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+}
+.header_blob1 {
+  width: 160px;
+  height: 160px;
+  top: -60px;
+  right: -40px;
+}
+.header_blob2 {
+  width: 90px;
+  height: 90px;
+  bottom: 10px;
+  left: -30px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.header_top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 24px;
 }
 
 .header_content {
-  padding: 0 24px;
+  flex: 1;
 }
 
 .header_greeting {
@@ -27,10 +59,71 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
+// 等级积分胶囊
+.header_level {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  &:active {
+    opacity: 0.8;
+  }
+}
+.header_level_badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+.header_level_score {
+  font-size: 12px;
+  color: #fff;
+  opacity: 0.95;
+}
+
+// 今日速览
+.header_overview {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 18px 24px 0;
+  padding: 12px 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+}
+.overview_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.overview_num {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+}
+.overview_label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.overview_line {
+  width: 1px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
 // 主体内容
 .index_body {
   padding: 0 16px 16px;
-  margin-top: -20px;
+  margin-top: -24px;
   position: relative;
   z-index: 10;
 }
@@ -225,14 +318,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fff;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
   border-radius: 14px;
-  padding: 14px 16px;
+  padding: 16px;
   margin-bottom: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(246, 211, 101, 0.2);
+  box-shadow: 0 4px 16px rgba(161, 140, 209, 0.35);
   &:active {
-    opacity: 0.75;
+    transform: scale(0.98);
+    opacity: 0.92;
   }
 }
 
@@ -243,24 +336,58 @@
 }
 
 .fun_entry_icon {
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1;
 }
 
 .fun_entry_title {
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 3px;
+}
+
+.fun_entry_tag {
+  font-size: 9px;
+  font-weight: 700;
+  color: #a18cd1;
+  background: #fff;
+  padding: 1px 6px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
 }
 
 .fun_entry_sub {
   font-size: 11px;
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .fun_entry_arrow {
-  font-size: 22px;
-  color: #fda085;
+  font-size: 24px;
+  color: #fff;
   font-weight: 300;
+}
+
+// 卡片入场动画
+.index_body > view {
+  animation: cardIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.index_body > view:nth-child(1) { animation-delay: 0.05s; }
+.index_body > view:nth-child(2) { animation-delay: 0.12s; }
+.index_body > view:nth-child(3) { animation-delay: 0.19s; }
+.index_body > view:nth-child(4) { animation-delay: 0.26s; }
+.index_body > view:nth-child(5) { animation-delay: 0.33s; }
+
+@keyframes cardIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
